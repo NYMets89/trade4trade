@@ -1,4 +1,5 @@
 from django import forms
+from django.db.utils import OperationalError
 from .models import Tag
 
 class EditorForm(forms.Form):
@@ -6,6 +7,11 @@ class EditorForm(forms.Form):
     img_link = forms.URLField(required=True)
     body = forms.CharField(widget=forms.Textarea, required=True)
     choices = []
-    for tag in Tag.objects.all():
-        choices.append((tag.tag_id, tag.name))
-    tags = forms.MultipleChoiceField(widget=forms.CheckboxSelectMultiple, choices=choices, required=True)
+
+    def __init__(self):
+        try:
+            for tag in Tag.objects.all():
+                self.choices.append((tag.tag_id, tag.name))
+            tags = forms.MultipleChoiceField(widget=forms.CheckboxSelectMultiple, choices=self.choices, required=True)
+        except OperationalError:
+            pass
