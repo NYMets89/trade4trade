@@ -6,8 +6,16 @@ from .forms import EditorForm
 # Create your views here.
 
 def home(request):
-    # get QuerySet object containing posts in descending order of post_id
     return render(request=request, template_name='home.html')
+
+def categorypage(request):
+    category = Category.objects.all()
+    return render(request=request, template_name='category.html', context={ 'category': category })
+
+def skillspage(request):
+    # get QuerySet object containing posts in descending order of post_id
+    posts = Post.objects.all().order_by('-post_id')
+    return render(request=request, template_name='skills.html', context={ 'posts': posts })
 
 def edit(request, post_id):
     if request.method == 'GET':

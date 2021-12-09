@@ -12,6 +12,6 @@ class EditorForm(forms.Form):
         try:
             for tag in Tag.objects.all():
                 self.choices.append((tag.tag_id, tag.name))
-            tags = forms.MultipleChoiceField(widget=forms.CheckboxSelectMultiple, choices=self.choices, required=True)
+            tag = forms.MultipleChoiceField(widget=forms.CheckboxSelectMultiple, choices=self.choices, required=True)
         except OperationalError:
             pass

@@ -21,4 +21,3 @@ class Comment(models.Model):
     comment_id = models.AutoField(primary_key=True)
     comment = models.CharField(max_length=255)
     post = models.ForeignKey(Post, on_delete=models.CASCADE)
-
