@@ -1,0 +1,10 @@
+<h1>Category</h1>
+
+{% for c in category %}
+
+    <h2>{{ c.name }}</h2>
+    <a href="google.com">Skills Page</a>
+
+    {% endfor %}
+<br>
+<a href="{% url 'home' %} ">Homepage</a>
