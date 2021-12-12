@@ -1,3 +1,29 @@
-<h1>Trade4Trade</h1>
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+body {background-color: powderblue;}
+h1   {color: blue; font-family: "pacifo";}
+p    {color: red;}
+#center {border: 2px solid; display: flex; align-items: center; justify-content: center}
+#image {border: 2px solid; display: flex; align-items: center;justify-content: center;
+  }
 
-<a href="{% url 'categorypage' %} ">Categories Page</a>
+</style>
+  {% comment %} <link rel="home" href="home.css"> {% endcomment %}
+</head>
+<body>
+
+<div class="container">
+    <div id="center">
+        <h1 style= "color: blue; font-family: insaniburger; fon-size: 350%">Trade4Trade</h1>
+    </div>
+</div>
+<div id="image">  <img src='https://images.thestar.com/3mMmgeO0TTbG74JXAtMVEpgoqZ0=/1280x1024/smart/filters:cb(1525397544003)/https://www.thestar.com/content/dam/thestar/life/homes/diy/2010/01/29/the_art_of_the_barter/barter.jpeg'alt="Lamp" width="600" height="600" 
+  > 
+</div>
+<div>
+            <button>
+                <a href="{% url 'categorypage' %} ">Categories Page</a>
+            </button>
+        </div>

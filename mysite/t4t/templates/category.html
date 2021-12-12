@@ -1,10 +1,9 @@
 <h1>Category</h1>
 
-{% for c in category %}
 
-    <h2>{{ c.name }}</h2>
-    <a href="google.com">Skills Page</a>
+<h2>{{ c.name }}</h2>
+<button onclick="google.com">Skills Page</button>
 
-    {% endfor %}
-<br>
-<a href="{% url 'home' %} ">Homepage</a>
+<button>
+    <a href="{% url 'home' %} ">Home</a>
+  </button>
