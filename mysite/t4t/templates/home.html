@@ -1,13 +1,27 @@
 <!DOCTYPE html>
 <html>
 <head>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+</head>
 <style>
-body {background-color: powderblue;}
-h1   {color: blue; font-family: "pacifo";}
-p    {color: red;}
-#center {border: 2px solid; display: flex; align-items: center; justify-content: center}
-#image {border: 2px solid; display: flex; align-items: center;justify-content: center;
+  .button { border: none; color: white; padding: 16px 32px; text-align: center;text-decoration: none;display: inline-block; font-size: 16px; margin: 4px 2px; transition-duration: 0.4s; cursor: pointer; border-radius: 5px;
   }
+#firstButton {width: 100px; height: 100px;
+}
+body {background-color: powderblue; font-family: 'Pacifico', cursive;
+}
+h1   {color: blue; font-family: 'pacifico'; font-size: 60px;
+}
+p    {color: red;font-size: 60px;
+}
+#center {border: none; display: flex; align-items: center; justify-content: center
+}
+.image {border: none; display: flex; align-items: center;justify-content: center;
+  }
+#secondReviewer {border: none; display: flex; align-items: flex-end; justify-content: flex-end;
+}
 
 </style>
   {% comment %} <link rel="home" href="home.css"> {% endcomment %}
@@ -16,14 +30,28 @@ p    {color: red;}
 
 <div class="container">
     <div id="center">
-        <h1 style= "color: blue; font-family: insaniburger; fon-size: 350%">Trade4Trade</h1>
+        <h1 id= "title">Trade4Trade</h1>
     </div>
 </div>
-<div id="image">  <img src='https://images.thestar.com/3mMmgeO0TTbG74JXAtMVEpgoqZ0=/1280x1024/smart/filters:cb(1525397544003)/https://www.thestar.com/content/dam/thestar/life/homes/diy/2010/01/29/the_art_of_the_barter/barter.jpeg'alt="Lamp" width="600" height="600" 
+<div class="image">  <img src='https://image.freepik.com/free-vector/teamwork-people-with-puzzle-pieces_24877-54950.jpg'alt="Teamwork" width="600" height="600" 
   > 
 </div>
 <div>
-            <button>
+            <button class="button button1">
                 <a href="{% url 'categorypage' %} ">Categories Page</a>
             </button>
         </div>
+
+<div>
+  <div class="image"> <img src= "https://thumbor.forbes.com/thumbor/960x0/https%3A%2F%2Fspecials-images.forbesimg.com%2Fimageserve%2F61688aa1d4a8658c3f4d8640%2FAntonio-Juliano%2F0x0.jpg%3Ffit%3Dscale" alt= "Reviewer1" width="400" height="400"
+  >
+  <p>"Met a lot of great people and learned a lot of new skills I had no idea I would be able to master."</p>
+  </div>
+
+  <div id="secondReviewer">
+    <p>"I had been wanting to learn Spanish for a long time. This site introduced me to so many in my community that I could do this with"</p>
+     <img id="secondReviewer" src="https://www.aconsciousrethink.com/wp-content/uploads/2020/12/cool-person-702x336.jpg"
+    alt= "Reviewer1" width="400" height="400">
+
+  </div>
+</div>
