@@ -3,7 +3,7 @@
 {% for c in category %}
 
     <h2>{{ c.name }}</h2>
-    <a href="google.com">Skills Page</a>
+    <a href="{% url 'skillspage' c.category_id %}">Skills Page</a>
 
     {% endfor %}
 <br>

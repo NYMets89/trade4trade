@@ -12,10 +12,11 @@ def categorypage(request):
     category = Category.objects.all()
     return render(request=request, template_name='category.html', context={ 'category': category })
 
-def skillspage(request):
+def skillspage(request, category_id):
     # get QuerySet object containing posts in descending order of post_id
     posts = Post.objects.all().order_by('-post_id')
-    return render(request=request, template_name='skills.html', context={ 'posts': posts })
+    category = Category.objects.get(pk=category_id)
+    return render(request=request, template_name='skills.html', context={ 'posts': posts, 'category':category })
 
 def edit(request, post_id):
     if request.method == 'GET':
