@@ -5,5 +5,5 @@ urlpatterns = [
     # home/
     path('', views.home, name='home'),
     path('category/', views.categorypage, name='categorypage'),
-    path('<int:category_id>/', views.skillspage, name='skillspage')
+    path('category/<int:category_id>', views.skillspage, name='skillspage')
 ]
