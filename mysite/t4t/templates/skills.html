@@ -1,1 +1,10 @@
 <h1>{{ category.name }} Skills</h1>
+
+
+{% for post in posts%}
+<h2>{{ post.title }}</h2>
+{% endfor %}
+
+<a href="{% url 'home' %} ">Homepage</a>
+
+<a href="{% url 'categorypage' %} ">Categories Page</a>
