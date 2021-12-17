@@ -4,7 +4,7 @@
 {% for post in posts%}
 <h2>{{ post.title }}</h2>
 
-<h3>{{ post.intro }}</h3>
+{% comment %} <h3>{{ post.intro }}</h3> {% endcomment %}
 
 {% comment %} <a href="{% url 'post_deatil' post.post_id %} ">Read More</a> {% endcomment %}
 {% endfor %}
