@@ -1,0 +1,32 @@
+<h1>{{ post.title }}</h1>
+
+{% comment %} <p><strong>{{ post.intro }}</strong></p> {% endcomment %}
+
+<p>{{ post.body }}</p>
+
+<hr>
+
+<h2>Comments</h2>
+
+{% for comment in post.comments.all %}
+    <article>
+        <div>
+            <p><strong>{{ comment.comment}}</strong>
+                <br> {{ comment.body }}
+            <p>
+    </article>
+{% empty %}
+<p>No comments yet!</p> 
+{% endfor %}   
+
+<hr>
+<h2>Add comment</h2>
+
+<form>
+     {% csrf_token %}
+
+     {{ form.as }}
+
+    <button>
+        Submit
+    </button>

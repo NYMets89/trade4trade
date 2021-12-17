@@ -1,8 +1,8 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.http import HttpResponseRedirect
 from django.urls import reverse
 from .models import *
-from .forms import EditorForm
+from .forms import EditorForm, CommentForm
 # Create your views here.
 
 def home(request):
@@ -73,3 +73,21 @@ def create(request):
 
         # redirect to 'blog/'
         return HttpResponseRedirect(reverse('home'))
+
+def post_detail(request,post_id):
+    post = Post.objects.get(post_id=post_id)
+
+    if request.method == 'POST':
+        form = CommentForm(request.POST)
+
+        if form.is_valid():
+            comment = form.save(commit=False)
+            comment.post = post
+            comment.save()
+
+            return redirect('post_detail', post_id=post.post_id)
+
+    else:
+        form = CommentForm()
+
+    return render(request, "post_detail.html", {'post':post, 'form':form})
