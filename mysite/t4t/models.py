@@ -11,13 +11,16 @@ class Tag(models.Model):
 
 class Post(models.Model):
     post_id = models.AutoField(primary_key=True)
-    img_link = models.URLField(max_length=400)
     title =  models.CharField(max_length=255)
     body = models.TextField()
     tags = models.ManyToManyField(Tag)
     category = models.ForeignKey(Category, on_delete=models.CASCADE)
+    def __unicode__(self):
+       return 'Post: ' + self.name
 
 class Comment(models.Model):
     comment_id = models.AutoField(primary_key=True)
+    post = models.ForeignKey(Post, related_name='comments', on_delete=models.CASCADE, default= ' ')
     comment = models.CharField(max_length=255)
-    post = models.ForeignKey(Post, on_delete=models.CASCADE)
+    email = models.EmailField(max_length=255)
+    body = models.TextField(max_length=255)
