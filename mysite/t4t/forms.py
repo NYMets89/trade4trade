@@ -5,7 +5,6 @@ from .models import Tag, Comment
 
 class EditorForm(forms.Form):
     title = forms.CharField(max_length=255, required=True)
-    img_link = forms.URLField(required=True)
     body = forms.CharField(widget=forms.Textarea, required=True)
     choices = []
 

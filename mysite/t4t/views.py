@@ -27,7 +27,7 @@ def edit(request, post_id):
         for tag in post.tags.all():
             tags.append(tag.tag_id)
         # pre-populate form with values of the post
-        form = EditorForm(initial={ 'title': post.title, 'body': post.body, 'tags': tags, 'img_link': post.img_link })
+        form = EditorForm(initial={ 'title': post.title, 'body': post.body, 'tags': tags})
         return render(request=request, template_name='edit.html', context={ 'form': form, 'id': post_id })
     if request.method == 'POST':    
         # capture POST data as EditorForm instance
@@ -38,13 +38,12 @@ def edit(request, post_id):
             if 'save' in request.POST:
                 # get cleaned data from form
                 title = form.cleaned_data['title']
-                img_link = form.cleaned_data['img_link']
                 body = form.cleaned_data['body']
                 tags = form.cleaned_data['tags']
                 # filter QuerySet object by post_id
                 posts = Post.objects.filter(pk=post_id)
                 # update QuerySet object with cleaned title, body, img_link
-                posts.update(title=title, body=body, img_link=img_link)
+                posts.update(title=title, body=body)
                 # set cleaned tags to ManyRelatedManager object
                 posts[0].tags.set(tags)
             # if form was submitted by clicking Delete
@@ -64,11 +63,10 @@ def create(request):
         # validate form
         if form.is_valid():
             title = form.cleaned_data['title']
-            img_link = form.cleaned_data['img_link']
             body = form.cleaned_data['body']
             tags = form.cleaned_data['tags']
             
-            post = Post.objects.create(title=title, body=body, img_link=img_link)
+            post = Post.objects.create(title=title, body=body)
             post.tags.set(tags) 
 
         # redirect to 'blog/'
