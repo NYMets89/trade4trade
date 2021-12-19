@@ -8,7 +8,16 @@
 
 <a href="{% url 'post_detail' post.post_id %} ">Read More</a>
 {% endfor %}
+<br><br>
+<!-- NEED TO FIX URL FOR FORM ACTION - The #1 needs to
+be replaced with something dynamic and not static -->
+<form action="{% url 'skillspage' 1 %}" method="POST">
+    {% csrf_token %} 
+    {{ form }}
+    <input type="submit" name="create" value="Create" />
+</form>
 
+<br><br><br><br><br><br>
 <a href="{% url 'home' %} ">Homepage</a>
 
 <a href="{% url 'categorypage' %} ">Categories Page</a>

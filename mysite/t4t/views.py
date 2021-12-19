@@ -14,9 +14,25 @@ def categorypage(request):
 
 def skillspage(request, category_id):
     # get QuerySet object containing posts in descending order of post_id
-    posts = Post.objects.all().order_by('-post_id')
     category = Category.objects.get(pk=category_id)
-    return render(request=request, template_name='skills.html', context={ 'posts': posts, 'category':category })
+    posts = Post.objects.all().order_by('-post_id')
+###   NEED TO FILTER BY CATEGORY_ID    ### 
+    if request.method == 'GET':
+        form = EditorForm()
+        return render(request=request, template_name='skills.html', context={ 'form': form, "posts": posts, "category":category })
+    if request.method == 'POST':    
+        # capture POST data as EditorForm instance
+        form = EditorForm(request.POST)
+        # validate form
+        if form.is_valid():
+            title = form.cleaned_data['title']
+            body = form.cleaned_data['body']
+            #tags = form.cleaned_data['tags']
+            post = Post.objects.create(title=title, body=body, category=category)
+            post.save()
+            #post.tags.set(tags) 
+### GET REDIRECT TO REFRESH SKILLS PAGE INSTEAD OF GOING TO HOME ###
+        return HttpResponseRedirect(reverse('home'))
 
 def edit(request, post_id):
     if request.method == 'GET':
