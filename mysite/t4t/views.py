@@ -1,3 +1,4 @@
+from django.db.models.fields.related import ForeignKey
 from django.shortcuts import render, redirect
 from django.http import HttpResponseRedirect
 from django.urls import reverse
@@ -14,20 +15,36 @@ def categorypage(request):
 
 def skillspage(request, category_id):
     # get QuerySet object containing posts in descending order of post_id
-    posts = Post.objects.all().order_by('-post_id')
     category = Category.objects.get(pk=category_id)
-    return render(request=request, template_name='skills.html', context={ 'posts': posts, 'category':category })
+    posts = Post.objects.filter(category=category_id).order_by('-post_id')
+###   NEED TO FILTER BY CATEGORY_ID    ### 
+    if request.method == 'GET':
+        form = EditorForm()
+        return render(request=request, template_name='skills.html', context={ 'form': form, "posts": posts, "category":category })
+    if request.method == 'POST':    
+        # capture POST data as EditorForm instance
+        form = EditorForm(request.POST)
+        # validate form
+        if form.is_valid():
+            title = form.cleaned_data['title']
+            body = form.cleaned_data['body']
+            #tags = form.cleaned_data['tags']
+            post = Post.objects.create(title=title, body=body, category=category)
+            post.save()
+            #post.tags.set(tags) 
+
+        return redirect('skillspage', category_id=category.category_id)
 
 def edit(request, post_id):
     if request.method == 'GET':
         # get Post object by its post_id
         post = Post.objects.get(pk=post_id)
         # get a list of tag_id from ManyRelatedManager object
-        tags = []
-        for tag in post.tags.all():
-            tags.append(tag.tag_id)
+        # tags = []
+        # for tag in post.tags.all():
+        #     tags.append(tag.tag_id)
         # pre-populate form with values of the post
-        form = EditorForm(initial={ 'title': post.title, 'body': post.body, 'tags': tags})
+        form = EditorForm(initial={ 'title': post.title, 'body': post.body})
         return render(request=request, template_name='edit.html', context={ 'form': form, 'id': post_id })
     if request.method == 'POST':    
         # capture POST data as EditorForm instance

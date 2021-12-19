@@ -8,7 +8,15 @@
 
 <a href="{% url 'post_detail' post.post_id %} ">Read More</a>
 {% endfor %}
+<br><br>
 
+<form action="{% url 'skillspage' category.category_id %}" method="POST">
+    {% csrf_token %} 
+    {{ form }}
+    <input type="submit" name="create" value="Create" />
+</form>
+
+<br><br><br><br><br><br>
 <a href="{% url 'home' %} ">Homepage</a>
 
 <a href="{% url 'categorypage' %} ">Categories Page</a>
