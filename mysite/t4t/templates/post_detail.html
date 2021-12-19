@@ -22,12 +22,10 @@
 <hr>
 <h2>Add comment</h2>
 
-<form>
-     {% csrf_token %}
-
-     {{ form.as }}
-
-    <button>
-        Submit
-    </button>
+<form action="{% url 'post_detail' post.post_id %}" method="POST">
+    {% csrf_token %} 
+    {{ form }}
+    <input type="submit" name="create" value="Create" />
 </form>
+
+
