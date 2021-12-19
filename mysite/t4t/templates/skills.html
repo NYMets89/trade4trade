@@ -7,6 +7,7 @@
 <h3>{{ post.intro }}</h3>
 
 <a href="{% url 'post_detail' post.post_id %} ">Read More</a>
+<a href="{% url 'edit' post.post_id category.category_id %}">Edit Post</a>
 {% endfor %}
 <br><br>
 
