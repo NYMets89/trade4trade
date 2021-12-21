@@ -10,4 +10,4 @@ class EditorForm(forms.Form):
 class CommentForm(forms.ModelForm):
     class Meta:
         model = Comment
-        fields = ['comment', 'email', 'body']
+        fields = ['comment', 'body']

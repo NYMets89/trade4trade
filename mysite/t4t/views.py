@@ -28,10 +28,10 @@ def skillspage(request, category_id):
         if form.is_valid():
             title = form.cleaned_data['title']
             body = form.cleaned_data['body']
-            #tags = form.cleaned_data['tags']
+            tags = form.cleaned_data['tags']
             post = Post.objects.create(title=title, body=body, category=category)
             post.save()
-            #post.tags.set(tags) 
+            post.tags.set(tags) 
 
         return redirect('skillspage', category_id=category.category_id)
 
@@ -41,9 +41,9 @@ def edit(request, post_id, category_id):
         # get Post object by its post_id
         post = Post.objects.get(pk=post_id)
         # get a list of tag_id from ManyRelatedManager object
-        # tags = []
-        # for tag in post.tags.all():
-        #     tags.append(tag.tag_id)
+        tags = []
+        for tag in post.tags.all():
+            tags.append(tag.tag_id)
         # pre-populate form with values of the post
         form = EditorForm(initial={ 'title': post.title, 'body': post.body})
         return render(request=request, template_name='edit.html', context={ 'form': form, 'post_id': post_id, 'category_id':category_id })
@@ -57,13 +57,13 @@ def edit(request, post_id, category_id):
                 # get cleaned data from form
                 title = form.cleaned_data['title']
                 body = form.cleaned_data['body']
-                # tags = form.cleaned_data['tags']
+                tags = form.cleaned_data['tags']
                 # filter QuerySet object by post_id
                 posts = Post.objects.filter(pk=post_id)
                 # update QuerySet object with cleaned title, body, img_link
                 posts.update(title=title, body=body)
                 # set cleaned tags to ManyRelatedManager object
-                # posts[0].tags.set(tags)
+                posts[0].tags.set(tags)
             # if form was submitted by clicking Delete
             elif 'delete' in request.POST:
                 # filter QuerySet object by post_id and delete it
@@ -82,10 +82,10 @@ def create(request):
         if form.is_valid():
             title = form.cleaned_data['title']
             body = form.cleaned_data['body']
-            # tags = form.cleaned_data['tags']
+            tags = form.cleaned_data['tags']
             
-            #post = Post.objects.create(title=title, body=body)
-            # post.tags.set(tags) 
+            post = Post.objects.create(title=title, body=body)
+            post.tags.set(tags) 
 
         # redirect to 'blog/'
         return HttpResponseRedirect(reverse('home'))
