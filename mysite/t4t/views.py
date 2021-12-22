@@ -82,8 +82,9 @@ def create(request):
             title = form.cleaned_data['title']
             body = form.cleaned_data['body']
             tags = form.cleaned_data['tags']
-            post = Post.objects.create(title=title, body=body)
+            post = Post.objects.create(title=title, body=body, tags=tags)
             post.tags.set(tags) 
+            
 
         # redirect to 'blog/'
         return HttpResponseRedirect(reverse('home'))

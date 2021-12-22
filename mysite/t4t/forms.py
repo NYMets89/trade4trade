@@ -1,5 +1,6 @@
 from django import forms
 from .models import Tag, Comment
+from django.forms.widgets import CheckboxSelectMultiple
 
 class EditorForm(forms.Form):
     title = forms.CharField(max_length=255, required=True)
@@ -8,7 +9,7 @@ class EditorForm(forms.Form):
     tag = Tag.objects.all()
     for tag in Tag.objects.all():
         choices.append((tag.tag_id, tag.name))
-    tags = forms.MultipleChoiceField(widget=forms.CheckboxSelectMultiple, choices=choices, required=False)
+    tags = forms.MultipleChoiceField(widget=CheckboxSelectMultiple, choices=choices, required=False)
 
 class CommentForm(forms.ModelForm):
     class Meta:
