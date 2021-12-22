@@ -17,10 +17,12 @@ def skillspage(request, category_id):
     # get QuerySet object containing posts in descending order of post_id
     category = Category.objects.get(pk=category_id)
     posts = Post.objects.filter(category=category_id).order_by('-post_id')
+    ####################tag = Tag.objects.get(pk=tag_id)
+
 
     if request.method == 'GET':
         form = EditorForm()
-        return render(request=request, template_name='skills.html', context={ 'form': form, "posts": posts, "category":category })
+        return render(request=request, template_name='skills.html', context={ 'form': form, "posts": posts, "category":category})
     if request.method == 'POST':    
         # capture POST data as EditorForm instance
         form = EditorForm(request.POST)
@@ -28,10 +30,10 @@ def skillspage(request, category_id):
         if form.is_valid():
             title = form.cleaned_data['title']
             body = form.cleaned_data['body']
-            tags = form.cleaned_data['tags']
             post = Post.objects.create(title=title, body=body, category=category)
+            ##############tag = Tag.objects.all()
             post.save()
-            post.tags.set(tags) 
+            
 
         return redirect('skillspage', category_id=category.category_id)
 
@@ -57,13 +59,10 @@ def edit(request, post_id, category_id):
                 # get cleaned data from form
                 title = form.cleaned_data['title']
                 body = form.cleaned_data['body']
-                tags = form.cleaned_data['tags']
                 # filter QuerySet object by post_id
                 posts = Post.objects.filter(pk=post_id)
                 # update QuerySet object with cleaned title, body, img_link
                 posts.update(title=title, body=body)
-                # set cleaned tags to ManyRelatedManager object
-                posts[0].tags.set(tags)
             # if form was submitted by clicking Delete
             elif 'delete' in request.POST:
                 # filter QuerySet object by post_id and delete it
@@ -83,7 +82,6 @@ def create(request):
             title = form.cleaned_data['title']
             body = form.cleaned_data['body']
             tags = form.cleaned_data['tags']
-            
             post = Post.objects.create(title=title, body=body)
             post.tags.set(tags) 
 

@@ -11,6 +11,11 @@
 {% endfor %}
 <br><br>
 
+<style>
+    textarea {
+        display: block;
+    }
+</style>
 <form action="{% url 'skillspage' category.category_id %}" method="POST">
     {% csrf_token %} 
     {{ form }}

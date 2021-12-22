@@ -20,6 +20,14 @@
 {% endfor %}   
 
 <hr>
+{% for tag in post.tags.all %}
+    <article>
+        <div>
+            <p><strong>{{ tag.name.all }}</strong><p>
+    </article>
+{% endfor %}   
+<hr>
+
 <h2>Add comment</h2>
 
 <form action="{% url 'post_detail' post.post_id %}" method="POST">
@@ -32,3 +40,4 @@
 <a href="{% url 'home' %} ">Homepage</a>
 
 <a href="{% url 'categorypage' %} ">Categories Page</a>
+
