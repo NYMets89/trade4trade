@@ -1,0 +1,13 @@
+<style>
+    input[type='text'],
+    input[type='url'],
+    textarea {
+        display: block;
+    }
+</style>
+<h1>Edit Post</h1>
+<form action="{% url 'edit' post_id category_id %}" method="POST">
+    {% csrf_token %} {{ form }}
+    <input type="submit" name="save" value="Save" />
+    <input type="submit" name="delete" value="Delete" />
+</form>
