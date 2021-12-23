@@ -47,7 +47,7 @@ def edit(request, post_id, category_id):
         for tag in post.tags.all():
             tags.append(tag.tag_id)
         # pre-populate form with values of the post
-        form = EditorForm(initial={ 'title': post.title, 'body': post.body})
+        form = EditorForm(initial={ 'title': post.title, 'body': post.body, 'tags' : tags })
         return render(request=request, template_name='edit.html', context={ 'form': form, 'post_id': post_id, 'category_id':category_id })
     if request.method == 'POST':    
         # capture POST data as EditorForm instance
@@ -59,10 +59,16 @@ def edit(request, post_id, category_id):
                 # get cleaned data from form
                 title = form.cleaned_data['title']
                 body = form.cleaned_data['body']
+                tags_id = form.cleaned_data['tags']
                 # filter QuerySet object by post_id
-                posts = Post.objects.filter(pk=post_id)
+                post = Post.objects.get(pk=post_id)
+                post.tags.set(tags_id) 
+                post.body = body
+                post.title = title
+                post.save()
+            
                 # update QuerySet object with cleaned title, body, img_link
-                posts.update(title=title, body=body)
+                
             # if form was submitted by clicking Delete
             elif 'delete' in request.POST:
                 # filter QuerySet object by post_id and delete it
