@@ -59,7 +59,9 @@ def edit(request, post_id, category_id):
                 # get cleaned data from form
                 title = form.cleaned_data['title']
                 body = form.cleaned_data['body']
+gr-tags
                 tags_id = form.cleaned_data['tags']
+                
                 # filter QuerySet object by post_id
                 post = Post.objects.get(pk=post_id)
                 post.tags.set(tags_id) 
@@ -68,7 +70,7 @@ def edit(request, post_id, category_id):
                 post.save()
             
                 # update QuerySet object with cleaned title, body, img_link
-                
+
             # if form was submitted by clicking Delete
             elif 'delete' in request.POST:
                 # filter QuerySet object by post_id and delete it
@@ -87,9 +89,13 @@ def create(request):
         if form.is_valid():
             title = form.cleaned_data['title']
             body = form.cleaned_data['body']
+
             tags = form.cleaned_data['tags']
+            
+            
+
             post = Post.objects.create(title=title, body=body)
-            post.tags.set(tags) 
+            #post.tags.set(tags) 
 
         # redirect to 'blog/'
         return HttpResponseRedirect(reverse('home'))
