@@ -1,8 +1,8 @@
 # Trade4Trade
-> Trade4Trade is a digital marketplace that brings users from around the world together to exchange services and skills, without the need for money. Payment is done with an old-school, barter style approach, but modernized. A basic functionality of the app is that a teacher/giver of a service is also a learner/receiver of a service. This app operates on the premise that everyone, regardless of education, skill, race, gender, religion and/or criminal history has something to offer. 
+Trade4Trade is a digital marketplace that brings users from around the world together to exchange services and skills, without the need for money. Payment is done with an old-school, barter style approach, but modernized. A basic functionality of the app is that a teacher/giver of a service is also a learner/receiver of a service. This app operates on the premise that everyone, regardless of education, skill, race, gender, religion and/or criminal history has something to offer. 
 
-[![Maintenance](https://img.shields.io/badge/Maintained%3F-yes-green.svg)]
-[![contributions welcome](https://img.shields.io/badge/contributions-welcome-brightgreen.svg?style=flat)]
+![Maintenance](https://img.shields.io/badge/Maintained%3F-yes-green.svg)
+![contributions welcome](https://img.shields.io/badge/contributions-welcome-brightgreen.svg?style=flat)
 
 ![Trade4Trade_Logo](https://user-images.githubusercontent.com/90114424/147296073-0449919e-8d0b-4646-a334-fd4bdbc65fb4.PNG)
 
