@@ -59,7 +59,6 @@ def edit(request, post_id, category_id):
                 # get cleaned data from form
                 title = form.cleaned_data['title']
                 body = form.cleaned_data['body']
-gr-tags
                 tags_id = form.cleaned_data['tags']
                 
                 # filter QuerySet object by post_id
