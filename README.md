@@ -1,8 +1,8 @@
 # Trade4Trade
 > Trade4Trade is a digital marketplace that brings users from around the world together to exchange services and skills, without the need for money. Payment is done with an old-school, barter style approach, but modernized. A basic functionality of the app is that a teacher/giver of a service is also a learner/receiver of a service. This app operates on the premise that everyone, regardless of education, skill, race, gender, religion and/or criminal history has something to offer. 
 
-[![Maintenance](https://img.shields.io/badge/Maintained%3F-yes-green.svg)](https://GitHub.com/Naereen/StrapDown.js/graphs/commit-activity)
-[![contributions welcome](https://img.shields.io/badge/contributions-welcome-brightgreen.svg?style=flat)](https://github.com/dwyl/esta/issues)
+[![Maintenance](https://img.shields.io/badge/Maintained%3F-yes-green.svg)]
+[![contributions welcome](https://img.shields.io/badge/contributions-welcome-brightgreen.svg?style=flat)]
 
 ![Trade4Trade_Logo](https://user-images.githubusercontent.com/90114424/147296073-0449919e-8d0b-4646-a334-fd4bdbc65fb4.PNG)
 
@@ -84,19 +84,21 @@ Additionally you can create another document called CONTRIBUTING.md which gives 
 ## Authors
 You can find us here at:
 
-* Gregg Reiss  – [Github](https://github.com/NYMets89)
-* Jessy Martinez - [Github](https://github.com/Vamonosraza)
-* Christian Taylor - [Github](https://github.com/jankyman)
-* Anthony Caccamo - [Github](https://github.com/Anthony-Caccamo) 
+* Gregg Riess  – [Gregg's Github](https://github.com/NYMets89)
+* Jessy Martinez - [Jessy's Github](https://github.com/Vamonosraza)
+* Christian Taylor - [Christian's Github](https://github.com/jankyman)
+* Anthony Caccamo - [Anthony's Github](https://github.com/Anthony-Caccamo) 
 
 ## Credits
 
-A heartfelt thank you to all members of [Columbia University's Justice Through Code](https://centerforjustice.columbia.edu/justicethroughcode) for volunteering their time and effort to help justice-impacted individuals from all walks of life learn valuable tech skills to regain their life back and to allow us to be positive contributors of society.
+A heartfelt thank you to all members of [Columbia University's Justice Through Code](https://centerforjustice.columbia.edu/justicethroughcode) for volunteering their time and effort to help justice-impacted individuals from all walks of life learn valuable tech skills to regain their life back and to allow us to be positive contributors of society. ❤️
 
-Thank you to the following people for their help and improving the quality of this project ❤️
-* Tyler Toro - [Github](https://github.com/tyler-toro)
-* Paul Bloom - [Github](https://github.com/pab2163)
-* Zander Maxwell - [Github](https://github.com/axelmax) 
+Thank you to the following people for their help and improving the quality of this project:
+* Tyler Toro - [Tyler's Github](https://github.com/tyler-toro)
+* Paul Bloom - [Paul's Github](https://github.com/pab2163)
+* Zander Maxwell - [Zander's Github](https://github.com/axelmax) 
+* Joe Walsh - [Joe's Github](https://github.com/joewalsh) 
+* Drew Mullen - [Drew's Github](https://github.com/drewmullen) 
 
 
 ## License
