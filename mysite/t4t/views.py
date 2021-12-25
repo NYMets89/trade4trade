@@ -30,9 +30,10 @@ def skillspage(request, category_id):
         if form.is_valid():
             title = form.cleaned_data['title']
             body = form.cleaned_data['body']
+            tags = form.cleaned_data['tags']
             post = Post.objects.create(title=title, body=body, category=category)
-            ##############tag = Tag.objects.all()
             post.save()
+            post.tags.set(tags)
             
 
         return redirect('skillspage', category_id=category.category_id)
@@ -68,7 +69,8 @@ def edit(request, post_id, category_id):
                 post.title = title
                 post.save()
             
-                # update QuerySet object with cleaned title, body, img_link
+                # update QuerySet object with cleaned title, body
+                
 
             # if form was submitted by clicking Delete
             elif 'delete' in request.POST:
@@ -88,13 +90,10 @@ def create(request):
         if form.is_valid():
             title = form.cleaned_data['title']
             body = form.cleaned_data['body']
-
-            tags = form.cleaned_data['tags']
-            
-            
-
-            post = Post.objects.create(title=title, body=body)
-            #post.tags.set(tags) 
+            tags_id = form.cleaned_data['tags']
+            post = Post.objects.create(title=title, body=body, tags_id=tags_id)
+            post.tags.set(tags_id) 
+            post.save()
 
         # redirect to 'blog/'
         return HttpResponseRedirect(reverse('home'))
