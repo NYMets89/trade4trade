@@ -8,14 +8,13 @@ Trade4Trade is a digital marketplace that brings users from around the world tog
 
 
 ## Requirements
-Tools and packages required to successfully install this project.
-For example:
+Tools and packages required to successfully install this project:
 * Python 3.3 and up [Install](https://www.python.org/downloads/)
 * Django [Install](https://docs.djangoproject.com/en/4.0/topics/install/)
 
 
-## Installation
-A step by step list of commands / guide that informs how to install an instance of this project. 
+## Installation/Cloning
+How to install an instance of this project:
 
 For Windows/Linux/OSx
 
@@ -34,9 +33,9 @@ How to deploy your project on a local server.
 
 In your repo folder:
 
-Run ```python3 -m venv django-env``` to create a new virtual environment
-Run ``source django-env/bin/activate`` on Unix/MacOS or ```django-env\Scripts\activate.bat ``` on Windows to activate the virtual environment
-Run ```pip install django``` to install Django
+* Run ```python3 -m venv django-env``` to create a new virtual environment
+* Run ``source django-env/bin/activate`` on Unix/MacOS or ```django-env\Scripts\activate.bat ``` on Windows to activate the virtual environment
+* Run ```pip install django``` to install Django
 
 Then navigate into the project folder you created:
 ```sh
@@ -65,7 +64,7 @@ Quit the server with CONTROL-C.
 ## Tech Stack
 Built with:
 1. [Python](https://www.python.org/) - Python is a programming language that lets you work more quickly and integrate your systems more effectively.
-2. [Django](https://ipfs.io/)  - Django is a high-level Python web framework that encourages rapid development and clean, pragmatic design.
+2. [Django](https://www.djangoproject.com/)  - Django is a high-level Python web framework that encourages rapid development and clean, pragmatic design.
 
 ## How to Contribute
 Anyone can contribute to make this project more productive or fix bugs in it.  
@@ -79,7 +78,7 @@ Steps to contribute:
 4. Push to the branch (git push origin new-feature)
 5. Create a new Pull Request
 
-Additionally you can create another document called CONTRIBUTING.md which gives instructions about how to contribute. 
+We will get notified of any pull request and review/approve changes that will improve Trade4Trade.
 
 ## Authors
 You can find us here at:
