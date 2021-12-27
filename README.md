@@ -35,7 +35,14 @@ In your repo folder:
 
 * Run ```python3 -m venv django-env``` to create a new virtual environment
 * Run ``source django-env/bin/activate`` on Unix/MacOS or ```django-env\Scripts\activate.bat ``` on Windows to activate the virtual environment
-* Run ```pip install django``` to install Django
+* Run ```pip install -r requirements.txt ``` to install dependencies. The user should install everything saved to the requirements.txt, as shown below:
+
+```
+asgiref==3.4.1
+Django==3.2.9
+pytz==2021.3
+sqlparse==0.4.2
+```
 
 Then navigate into the project folder you created:
 ```sh
